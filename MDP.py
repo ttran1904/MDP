@@ -31,9 +31,18 @@ class MDP:
         self.__calculateProbs()
         pass
     
+    # Change the values from COUNT to PROBABILITY 
+    # based on how many total transitions a state has
     def __calculateProbs(self):
         for state in self.output:
-            dict = self.output[]
+            transitions = self.output[state]
+            # Num of transition is total moves for a state
+            n = sum(transitions.values())   
+            
+            new_trans = {}
+            for t in transitions:
+                new_trans[t] = transitions[t] / n
+            self.output[state] = new_trans
         pass
     
     def __addTransition(self, state, next):
