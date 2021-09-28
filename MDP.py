@@ -46,7 +46,14 @@ class MDP:
         pass
     
     def __addTransition(self, state, next):
-        pass
+        if state in self.output:
+            if next in self.output[state]: self.output[state][next] += 1
+            else: self.output[state][next] = 1 
+        else:
+            d = {}
+            d[next] = 1
+            self.output[state] = d
+        
         
                 
             
