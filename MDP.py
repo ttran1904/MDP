@@ -23,13 +23,13 @@ class MDP:
                 prev, curr = seq[i-1], seq[i]
                 if prev != curr:
                     self.__addTransition(prev, curr)
+        self.__calculateProbs()
     
     # Get transition probability dictionary. 
     # Each key is a state, and its value is a dictionary of 
     # transitions as keys and probabilities as values.
     def getTransitionProbs(self):
-        self.__calculateProbs()
-        pass
+        return self.output
     
     # Change the values from COUNT to PROBABILITY 
     # based on how many total transitions a state has
