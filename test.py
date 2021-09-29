@@ -1,15 +1,18 @@
-import MDP
+from MDP import MDP
 import unittest 
 
 class MDPTestCase(unittest.TestCase):
-    def smallMDP(self):
-        seq1 = ['a', 'a', 'b', 'b', 'c', 'c', 'd', 'd']
-        lst = [seq1]
-        self.MDP = MDP(lst) 
-        self.MDP.run()
-        tp = self.MDP.getTransitionProbs()
-        print(tp)
+    def test_smallMDP(self):
+        lst = [['a', 'a', 'b', 'b', 'c', 'c', 'd', 'd']]
+        self.mdp = MDP(lst)
+        self.mdp.run()
+        tp = self.mdp.getTransitionProbs()
+        
+        solution = {'a': {'b': 1}, 'b': {'c':1}, 'c' : {'d': 1}}
+        self.assertEqual(tp, solution)
+
+        
     
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main() 

@@ -6,11 +6,17 @@
 class MDP:
     def __init__(self, sequences=None):
         self.sequences = sequences
-        self.output = None
+        self.output = {}
         
     # Input the transition sequence if haven't done so
     def putSequences(self, sequences):
         self.sequences = sequences
+    
+    # Get transition probability dictionary. 
+    # Each key is a state, and its value is a dictionary of 
+    # transitions as keys and probabilities as values.
+    def getTransitionProbs(self):
+        return self.output
     
     # Run through MDP to find transition probabilities
     def run(self):
@@ -24,12 +30,6 @@ class MDP:
                 if prev != curr:
                     self.__addTransition(prev, curr)
         self.__calculateProbs()
-    
-    # Get transition probability dictionary. 
-    # Each key is a state, and its value is a dictionary of 
-    # transitions as keys and probabilities as values.
-    def getTransitionProbs(self):
-        return self.output
     
     # Change the values from COUNT to PROBABILITY 
     # based on how many total transitions a state has
@@ -54,10 +54,3 @@ class MDP:
             d[next] = 1
             self.output[state] = d
         
-        
-                
-            
-        
-    
-    
-    
