@@ -30,10 +30,14 @@ class MDPTestCase(unittest.TestCase):
         self.assertEqual(tp, solution)
     
     def __printInput(self, lst):
-        print("\n......Input: ", lst)
+        # Uncomment HERE to see input
+        # print("\n......Input: ", lst)
+        pass
     
     def __printOutput(self, o):
-        print(".....Output:", o)
+        # Uncomment HERE to see output
+        # print(".....Output:", o)
+        pass
     
 if __name__ == '__main__':
     unittest.main() 
